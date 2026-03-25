@@ -1,0 +1,32 @@
+{
+  "luteina-zeaxantina": {
+    "local_path": "assets/img/content/luteina-zeaxantina.jpg",
+    "attribution_html": "Foto: Macularcarotenoids / <a href=\"https://commons.wikimedia.org/wiki/File%3AUpdated_graphic_24.2.16.png\" rel=\"nofollow\">Wikimedia Commons</a> / <a href=\"https://creativecommons.org/licenses/by-sa/4.0\" rel=\"nofollow\">CC BY-SA 4.0</a>",
+    "wiki_page": "https://commons.wikimedia.org/wiki/File%3AUpdated_graphic_24.2.16.png",
+    "license": "CC BY-SA 4.0"
+  },
+  "omega-3-dha": {
+    "local_path": "assets/img/content/omega-3-dha.jpg",
+    "attribution_html": "Foto: NIH Image Gallery / <a href=\"https://commons.wikimedia.org/wiki/File%3ADHA_crossing_the_blood-brain_barrier.jpg\" rel=\"nofollow\">Wikimedia Commons</a>",
+    "wiki_page": "https://commons.wikimedia.org/wiki/File%3ADHA_crossing_the_blood-brain_barrier.jpg",
+    "license": "Public domain"
+  },
+  "arandano": {
+    "local_path": "assets/img/content/arandano.jpg",
+    "attribution_html": "Foto: B.navez / <a href=\"https://commons.wikimedia.org/wiki/File%3AVaccinium_myrtillus_RecolteAuPeigne.JPG\" rel=\"nofollow\">Wikimedia Commons</a> / <a href=\"http://creativecommons.org/licenses/by-sa/3.0/\" rel=\"nofollow\">CC BY-SA 3.0</a>",
+    "wiki_page": "https://commons.wikimedia.org/wiki/File%3AVaccinium_myrtillus_RecolteAuPeigne.JPG",
+    "license": "CC BY-SA 3.0"
+  },
+  "degeneracion-macular": {
+    "local_path": "assets/img/content/degeneracion-macular.jpg",
+    "attribution_html": "Foto: MethylC5 / <a href=\"https://commons.wikimedia.org/wiki/File%3AAMD_by_race_and_age_from_National_Eye_Institute_data.jpg\" rel=\"nofollow\">Wikimedia Commons</a> / <a href=\"https://creativecommons.org/licenses/by-sa/4.0\" rel=\"nofollow\">CC BY-SA 4.0</a>",
+    "wiki_page": "https://commons.wikimedia.org/wiki/File%3AAMD_by_race_and_age_from_National_Eye_Institute_data.jpg",
+    "license": "CC BY-SA 4.0"
+  },
+  "fatiga-visual-digital": {
+    "local_path": "assets/img/content/fatiga-visual-digital.jpg",
+    "attribution_html": "Foto: Alexandre Buisse (Nattfodd) / <a href=\"https://commons.wikimedia.org/wiki/File%3AD%C3%B4me_du_Go%C3%BBter_depuis_la_gare_des_glaciers.jpg\" rel=\"nofollow\">Wikimedia Commons</a> / <a href=\"http://creativecommons.org/licenses/by-sa/3.0/\" rel=\"nofollow\">CC BY-SA 3.0</a>",
+    "wiki_page": "https://commons.wikimedia.org/wiki/File%3AD%C3%B4me_du_Go%C3%BBter_depuis_la_gare_des_glaciers.jpg",
+    "license": "CC BY-SA 3.0"
+  }
+}
