@@ -1200,7 +1200,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </div>
     </div>
 </div>
-    
+  
   <!-- hilart-shorts-video-embed -->
   <section class="video-embed-section" style="padding:40px 20px;text-align:center;background:#f8f9fa">
     <div class="container" style="max-width:640px;margin:0 auto">
@@ -1212,11 +1212,14 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         <video
           poster="https://tapirro.github.io/hilart-shorts/thumbnails/07_listicle_zeaxan.jpg"
           playsinline
-          controls
+          muted
+          loop
           preload="none"
           width="270"
           height="480"
-          style="border-radius:12px;max-width:100%;background:#000"
+          style="border-radius:12px;max-width:100%;background:#000;cursor:pointer"
+          data-src="zeaxan.pe"
+          data-video="07_listicle_zeaxan.mp4"
         >
           <source src="https://tapirro.github.io/hilart-shorts/videos/07_listicle_zeaxan.mp4" type="video/mp4">
         </video>
@@ -1226,11 +1229,14 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         <video
           poster="https://tapirro.github.io/hilart-shorts/thumbnails/15_question_zeaxan.jpg"
           playsinline
-          controls
+          muted
+          loop
           preload="none"
           width="270"
           height="480"
-          style="border-radius:12px;max-width:100%;background:#000"
+          style="border-radius:12px;max-width:100%;background:#000;cursor:pointer"
+          data-src="zeaxan.pe"
+          data-video="15_question_zeaxan.mp4"
         >
           <source src="https://tapirro.github.io/hilart-shorts/videos/15_question_zeaxan.mp4" type="video/mp4">
         </video>
@@ -1245,6 +1251,39 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       </p>
     </div>
   </section>
+  
+    <script>
+    (function(){
+      var videos=document.querySelectorAll('.video-embed-section video');
+      if(!videos.length)return;
+      var played={};
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          var v=e.target;
+          if(e.isIntersecting&&e.intersectionRatio>=0.6){
+            v.play().catch(function(){});
+          }else{
+            v.pause();
+          }
+        });
+      },{threshold:[0,0.6]});
+      videos.forEach(function(v){
+        io.observe(v);
+        v.addEventListener('play',function(){
+          var vid=v.getAttribute('data-video');
+          if(!played[vid]){
+            played[vid]=1;
+            try{navigator.sendBeacon('https://tapirro.github.io/hilart-shorts/api/play',JSON.stringify({v:vid,d:v.getAttribute('data-src'),t:Date.now()}))}catch(e){}
+          }
+        });
+        v.addEventListener('click',function(){
+          if(v.muted){v.muted=false;v.controls=true}
+          else if(v.paused){v.play()}
+          else{v.pause()}
+        });
+      });
+    })();
+    </script>
   <!-- hilart-shorts-video-embed -->
 
   <footer class="footer">
