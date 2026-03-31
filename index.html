@@ -1,6 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <style>
+    /* Pain Amplification */
+    .pain-amplification {
+      background: linear-gradient(135deg, #fef2f2 0%, #fff7ed 100%);
+      border-left: 4px solid #ef4444;
+      padding: 1.5rem 1.5rem;
+      margin: 1.5rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+    .pain-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .pain-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .pain-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #991b1b;
+      margin-bottom: 1rem;
+    }
+    .pain-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.25rem 0;
+    }
+    .pain-list li {
+      padding: 0.75rem 0;
+      font-size: 1.05rem;
+      color: #7f1d1d;
+      border-bottom: 1px solid rgba(127, 29, 29, 0.1);
+    }
+    .pain-list li:last-child {
+      border-bottom: none;
+    }
+    .pain-list li::before {
+      content: "❓";
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .pain-solution {
+      font-weight: 600;
+      color: #dc2626;
+      font-size: 1.1rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* Scarcity Banner */
+    .scarcity-banner {
+      background: linear-gradient(90deg, #dc2626, #b91c1c);
+      color: white;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Social Proof */
+    .social-proof {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    .sp-icon {
+      font-size: 1.1rem;
+    }
+    @media (max-width: 768px) {
+      .pain-amplification {
+        padding: 1.25rem 1rem;
+      }
+      .pain-title {
+        font-size: 1.15rem;
+      }
+    }
+    </style>
+    
 <meta charset="utf-8">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -545,6 +632,20 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
   <div class="hero-inner">
     <div class="hero-content reveal">
       <span class="hero-badge">Protección Ocular Natural</span>
+    <!-- Pain Amplification -->
+    <div class="pain-amplification">
+      <div class="pain-inner">
+        <div class="pain-icon">⚠️</div>
+        <h3 class="pain-title">¿Esto te suena familiar?</h3>
+        <ul class="pain-list">
+<li class="pain-q">¿¿La vista borrosa te preocupa?</li>
+        <li class="pain-q">¿¿¿Buscas apoyo para la salud ocular?</li>
+        <li class="pain-q">¿¿Quieres proteger tu visión con el tiempo?</li>
+        </ul>
+        <p class="pain-solution">No tienes que resignarte. Hay una solución natural.</p>
+      </div>
+    </div>
+    
     <!-- Authority Badges -->
     <div class="authority-badges-section">
       <div class="authority-badges-title">Validado por:</div>
@@ -964,6 +1065,17 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
 
 <!-- FINAL CTA -->
 <section class="final-cta">
+    <!-- Scarcity Banner -->
+    <div class="scarcity-banner">
+      <p>Oferta especial: Precio por tiempo limitado</p>
+    </div>
+    
+    <!-- Social Proof -->
+    <div class="social-proof">
+      <span class="sp-icon">🔥</span>
+      <span class="sp-text">Más de 100 pedidos esta semana</span>
+    </div>
+    
   <div class="final-cta-inner reveal">
     <h2>Tus Ojos Merecen Protección Real</h2>
     <p>Cada dia frente a las pantallas cuenta. Dale a tu vision el soporte natural que necesita con Zeaxan. No esperes a que la fatiga visual se convierta en un problema mayor.</p>
