@@ -1265,6 +1265,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </div>
   </section>
   
+    <script data-goatcounter="https://hilart-shorts.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <script>
     (function(){
       var videos=document.querySelectorAll('.video-embed-section video');
@@ -1286,11 +1287,17 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           var vid=v.getAttribute('data-video');
           if(!played[vid]){
             played[vid]=1;
-            try{navigator.sendBeacon('https://tapirro.github.io/hilart-shorts/api/play',JSON.stringify({v:vid,d:v.getAttribute('data-src'),t:Date.now()}))}catch(e){}
+            if(window.goatcounter&&window.goatcounter.count){
+              window.goatcounter.count({path:'embed/play/'+v.getAttribute('data-src')+'/'+vid,title:'Embed play: '+vid,event:true});
+            }
           }
         });
         v.addEventListener('click',function(){
-          if(v.muted){v.muted=false;v.controls=true}
+          if(v.muted){v.muted=false;v.controls=true;
+            if(window.goatcounter&&window.goatcounter.count){
+              window.goatcounter.count({path:'embed/unmute/'+v.getAttribute('data-src')+'/'+v.getAttribute('data-video'),title:'Embed unmute',event:true});
+            }
+          }
           else if(v.paused){v.play()}
           else{v.pause()}
         });
