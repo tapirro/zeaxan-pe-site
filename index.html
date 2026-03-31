@@ -830,12 +830,14 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     <script data-goatcounter="https://hilart-shorts.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
     <script>
     (function(){
-      var API='https://isle-boot-tribunal-blogging.trycloudflare.com';
-      if(API){
-        try{navigator.sendBeacon(API+'/api/analytics',JSON.stringify({
-          event:'page_load',site:location.hostname,path:location.pathname,ts:Date.now()
-        }))}catch(e){}
+      var API='';
+      function beacon(path,data){
+        if(API){try{navigator.sendBeacon(API+path,JSON.stringify(data))}catch(e){}}
       }
+      fetch('https://tapirro.github.io/hilart-shorts/api-config.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
+        API=d.api_url||'';
+        if(API)beacon('/api/analytics',{event:'page_load',site:location.hostname,path:location.pathname,ts:Date.now()});
+      }).catch(function(){});
       var videos=document.querySelectorAll('.video-embed-section video');
       if(!videos.length)return;
       var played={};
@@ -843,11 +845,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         if(window.goatcounter&&window.goatcounter.count){
           window.goatcounter.count({path:'embed/'+evt+'/'+src+'/'+vid,title:'Embed '+evt+': '+vid,event:true});
         }
-        if(API){
-          try{navigator.sendBeacon(API+'/api/analytics',JSON.stringify({
-            event:evt,video:vid,site:location.hostname,source:src,ts:Date.now()
-          }))}catch(e){}
-        }
+        beacon('/api/analytics',{event:evt,video:vid,site:location.hostname,source:src,ts:Date.now()});
       }
       var io=new IntersectionObserver(function(entries){
         entries.forEach(function(e){
@@ -880,6 +878,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </script>
   <!-- hilart-shorts-video-embed -->
 
+  
+  
   
   
   
