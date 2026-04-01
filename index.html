@@ -772,12 +772,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var played={};
       var playCount=0;
       var formShown=false;
-      var userActive=false;
-      var loadTs=Date.now();
-      ['click','scroll','touchstart','keydown'].forEach(function(t){
-        document.addEventListener(t,function(){userActive=true},{once:true,passive:true});
-      });
-      var embedV=2;
+      var embedV=3;
       function track(evt,vid,src,extra){
         var data={event:evt,video:vid,site:location.hostname,source:src,ts:Date.now(),embed_v:embedV};
         if(extra)for(var k in extra)data[k]=extra[k];
@@ -807,26 +802,26 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         });
       },{threshold:[0,0.6]});
       videos.forEach(function(v){
+        v._clicked=false;
         io.observe(v);
-        v.addEventListener('play',function(){
-          var vid=v.getAttribute('data-video');
-          var isAutoplay=!userActive||(Date.now()-loadTs<3000);
-          if(!played[vid]){
-            played[vid]=1;
-            if(!isAutoplay){
-              playCount++;
-              track('play',vid,v.getAttribute('data-src'));
-              if(playCount>=2)showLeadForm();
-            }
-          }
-        });
         v.addEventListener('click',function(){
-          userActive=true;
+          v._clicked=true;
           if(v.muted){v.muted=false;v.controls=true;
             track('unmute',v.getAttribute('data-video'),v.getAttribute('data-src'));
           }
           else if(v.paused){v.play()}
           else{v.pause()}
+        });
+        v.addEventListener('play',function(){
+          var vid=v.getAttribute('data-video');
+          if(!played[vid]){
+            played[vid]=1;
+            if(v._clicked){
+              playCount++;
+              track('play',vid,v.getAttribute('data-src'));
+              if(playCount>=2)showLeadForm();
+            }
+          }
         });
       });
       // Lead form submission
@@ -857,6 +852,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </script>
   <!-- hilart-shorts-video-embed -->
 
+      
+      
       
       
       
