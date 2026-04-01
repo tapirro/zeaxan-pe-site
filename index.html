@@ -714,17 +714,20 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         <p class="video-embed-title">Protege tu visión naturalmente</p>
       </div>
     </div>
-    <div id="embed-lead-form" style="display:none;opacity:0;transform:translateY(10px);transition:opacity 0.4s,transform 0.4s;margin:16px auto 0;max-width:320px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px 16px">
-      <p style="margin:0 0 8px;font-size:0.85rem;color:#166534;font-weight:600">\u00bfQuieres m\u00e1s info sobre Zeaxan?</p>
-      <form id="embed-lead-phone-form" style="display:flex;gap:8px;align-items:center">
-        <input name="phone" type="tel" placeholder="Tu WhatsApp" required minlength="7"
-          style="flex:1;padding:8px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:0.9rem;outline:none">
-        <button type="submit"
-          style="padding:8px 14px;background:#25d366;color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;white-space:nowrap">
-          Enviar
-        </button>
-      </form>
-      <p class="embed-lead-error" style="margin:4px 0 0;font-size:0.75rem;color:#dc2626"></p>
+    <div id="embed-lead-form" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#f0fdf4;border-top:2px solid #25d366;padding:12px 16px;box-shadow:0 -2px 12px rgba(0,0,0,0.15);transform:translateY(100%);transition:transform 0.4s ease-out">
+      <div style="max-width:480px;margin:0 auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+        <p style="margin:0;font-size:0.85rem;color:#166534;font-weight:600;flex:1 1 100%">\u00bfQuieres m\u00e1s info sobre Zeaxan? \ud83d\udcf2</p>
+        <form id="embed-lead-phone-form" style="display:flex;gap:8px;align-items:center;flex:1 1 100%">
+          <input name="phone" type="tel" placeholder="Tu WhatsApp" required minlength="7"
+            style="flex:1;padding:10px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;outline:none">
+          <button type="submit"
+            style="padding:10px 16px;background:#25d366;color:#fff;border:none;border-radius:8px;font-size:0.9rem;font-weight:600;cursor:pointer;white-space:nowrap">
+            Enviar
+          </button>
+        </form>
+        <p class="embed-lead-error" style="margin:0;font-size:0.75rem;color:#dc2626;flex:1 1 100%"></p>
+      </div>
+      <button id="embed-lead-close" style="position:absolute;top:8px;right:12px;background:none;border:none;font-size:1.2rem;color:#999;cursor:pointer">&times;</button>
     </div>
     <p style="margin-top:12px">
       <a href="https://tapirro.github.io/hilart-shorts/salud/salud-visual/" rel="noopener" target="_blank"
@@ -768,7 +771,9 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         if(formShown)return;
         formShown=true;
         var f=document.getElementById('embed-lead-form');
-        if(f){f.style.display='block';setTimeout(function(){f.style.opacity='1';f.style.transform='translateY(0)'},50)}
+        if(f){f.style.display='block';setTimeout(function(){f.style.transform='translateY(0)'},50)}
+        var cl=document.getElementById('embed-lead-close');
+        if(cl)cl.addEventListener('click',function(){f.style.transform='translateY(100%)';setTimeout(function(){f.style.display='none'},400)});
         track('form_show','','');
       }
       var io=new IntersectionObserver(function(entries){
@@ -827,6 +832,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
