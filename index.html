@@ -714,10 +714,22 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         <p class="video-embed-title">Protege tu visión naturalmente</p>
       </div>
     </div>
+    <div id="embed-lead-form" style="display:none;opacity:0;transform:translateY(10px);transition:opacity 0.4s,transform 0.4s;margin:16px auto 0;max-width:320px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:12px;padding:14px 16px">
+      <p style="margin:0 0 8px;font-size:0.85rem;color:#166534;font-weight:600">\u00bfQuieres m\u00e1s info sobre Zeaxan?</p>
+      <form id="embed-lead-phone-form" style="display:flex;gap:8px;align-items:center">
+        <input name="phone" type="tel" placeholder="Tu WhatsApp" required minlength="7"
+          style="flex:1;padding:8px 12px;border:1px solid #d1d5db;border-radius:8px;font-size:0.9rem;outline:none">
+        <button type="submit"
+          style="padding:8px 14px;background:#25d366;color:#fff;border:none;border-radius:8px;font-size:0.85rem;font-weight:600;cursor:pointer;white-space:nowrap">
+          Enviar
+        </button>
+      </form>
+      <p class="embed-lead-error" style="margin:4px 0 0;font-size:0.75rem;color:#dc2626"></p>
+    </div>
     <p style="margin-top:12px">
       <a href="https://tapirro.github.io/hilart-shorts/salud/salud-visual/" rel="noopener" target="_blank"
          style="color:#2563eb;text-decoration:none;font-size:0.85rem">
-        Ver más videos &rarr;
+        Ver m\u00e1s videos &rarr;
       </a>
     </p>
   </div>
@@ -729,6 +741,15 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       function beacon(path,data){
         if(API){try{navigator.sendBeacon(API+path,JSON.stringify(data))}catch(e){}}
       }
+      function postJSON(path,data,cb){
+        if(!API)return;
+        var x=new XMLHttpRequest();
+        x.open('POST',API+path);
+        x.setRequestHeader('Content-Type','application/json');
+        x.onload=function(){cb&&cb(x.status)};
+        x.onerror=function(){cb&&cb(0)};
+        x.send(JSON.stringify(data));
+      }
       fetch('https://tapirro.github.io/hilart-shorts/api-config.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
         API=d.api_url||'';
         if(API)beacon('/api/analytics',{event:'page_load',site:location.hostname,path:location.pathname,ts:Date.now()});
@@ -736,11 +757,19 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var videos=document.querySelectorAll('.video-embed-section video');
       if(!videos.length)return;
       var played={};
+      var formShown=false;
       function track(evt,vid,src){
         if(window.goatcounter&&window.goatcounter.count){
           window.goatcounter.count({path:'embed/'+evt+'/'+src+'/'+vid,title:'Embed '+evt+': '+vid,event:true});
         }
         beacon('/api/analytics',{event:evt,video:vid,site:location.hostname,source:src,ts:Date.now()});
+      }
+      function showLeadForm(){
+        if(formShown)return;
+        formShown=true;
+        var f=document.getElementById('embed-lead-form');
+        if(f){f.style.display='block';setTimeout(function(){f.style.opacity='1';f.style.transform='translateY(0)'},50)}
+        track('form_show','','');
       }
       var io=new IntersectionObserver(function(entries){
         entries.forEach(function(e){
@@ -759,6 +788,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           if(!played[vid]){
             played[vid]=1;
             track('play',vid,v.getAttribute('data-src'));
+            showLeadForm();
           }
         });
         v.addEventListener('click',function(){
@@ -769,10 +799,35 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           else{v.pause()}
         });
       });
+      // Lead form submission
+      var form=document.getElementById('embed-lead-phone-form');
+      if(form)form.addEventListener('submit',function(e){
+        e.preventDefault();
+        var phone=form.querySelector('input[name=phone]').value.trim();
+        if(!phone||phone.length<7)return;
+        var btn=form.querySelector('button');
+        btn.textContent='Enviando...';btn.disabled=true;
+        postJSON('/api/leads',{
+          name:'Embed lead',phone:phone,email:'',
+          session_id:'embed_'+Date.now(),slides_viewed:0,
+          source:location.hostname,
+          utm_source:'embed',utm_medium:'video',utm_campaign:'salud-visual',
+          referrer:document.referrer
+        },function(status){
+          if(status>=200&&status<300){
+            track('lead_captured',phone.replace(/\d/g,'*'),location.hostname);
+            form.innerHTML='<p style="color:#25d366;font-weight:600">\u2705 \u00a1Gracias! Te contactaremos pronto.</p>';
+          }else{
+            btn.textContent='Enviar';btn.disabled=false;
+            form.querySelector('.embed-lead-error').textContent='Error. Int\u00e9ntalo de nuevo.';
+          }
+        });
+      });
     })();
     </script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
