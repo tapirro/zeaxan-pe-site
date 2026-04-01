@@ -743,8 +743,11 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var API='';
       var q=[];
       function beacon(path,data){
-        if(API){try{navigator.sendBeacon(API+path,JSON.stringify(data))}catch(e){}}
+        if(API){try{navigator.sendBeacon(API+path,JSON.stringify(data))}catch(e){xhrFallback(path,data)}}
         else{q.push([path,data])}
+      }
+      function xhrFallback(path,data){
+        try{var x=new XMLHttpRequest();x.open('POST',API+path);x.setRequestHeader('Content-Type','application/json');x.send(JSON.stringify(data))}catch(e){}
       }
       function postJSON(path,data,cb){
         if(!API){q.push([path,data,cb]);return}
@@ -779,7 +782,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         if(f){f.style.display='block';setTimeout(function(){f.style.transform='translateY(0)'},50)}
         var cl=document.getElementById('embed-lead-close');
         if(cl)cl.addEventListener('click',function(){f.style.transform='translateY(100%)';setTimeout(function(){f.style.display='none'},400)});
-        track('form_show','','');
+        track('form_show','',location.hostname);
       }
       var io=new IntersectionObserver(function(entries){
         entries.forEach(function(e){
@@ -838,6 +841,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </script>
   <!-- hilart-shorts-video-embed -->
 
+      
+      
       
       
       
