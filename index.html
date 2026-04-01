@@ -769,10 +769,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       }).catch(function(){});
       var videos=document.querySelectorAll('.video-embed-section video');
       if(!videos.length)return;
-      var played={};
-      var playCount=0;
+      var engaged={};
+      var engageCount=0;
       var formShown=false;
-      var embedV=3;
+      var embedV=4;
       function track(evt,vid,src,extra){
         var data={event:evt,video:vid,site:location.hostname,source:src,ts:Date.now(),embed_v:embedV};
         if(extra)for(var k in extra)data[k]=extra[k];
@@ -802,24 +802,19 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         });
       },{threshold:[0,0.6]});
       videos.forEach(function(v){
-        v._clicked=false;
         io.observe(v);
         v.addEventListener('click',function(){
-          v._clicked=true;
+          var vid=v.getAttribute('data-video');
           if(v.muted){v.muted=false;v.controls=true;
-            track('unmute',v.getAttribute('data-video'),v.getAttribute('data-src'));
+            track('unmute',vid,v.getAttribute('data-src'));
           }
           else if(v.paused){v.play()}
           else{v.pause()}
-        });
-        v.addEventListener('play',function(){
-          var vid=v.getAttribute('data-video');
-          if(!played[vid]){
-            played[vid]=1;
-            if(v._clicked){
-              playCount++;
-              track('play',vid,v.getAttribute('data-src'));
-              if(playCount>=2)showLeadForm();
+          if(!engaged[vid]){
+            engaged[vid]=1;
+            engageCount++;
+            track('play',vid,v.getAttribute('data-src'));
+            if(engageCount>=2)showLeadForm();
             }
           }
         });
@@ -852,6 +847,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
