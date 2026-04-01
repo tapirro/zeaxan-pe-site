@@ -741,11 +741,13 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     <script>
     (function(){
       var API='';
+      var q=[];
       function beacon(path,data){
         if(API){try{navigator.sendBeacon(API+path,JSON.stringify(data))}catch(e){}}
+        else{q.push([path,data])}
       }
       function postJSON(path,data,cb){
-        if(!API)return;
+        if(!API){q.push([path,data,cb]);return}
         var x=new XMLHttpRequest();
         x.open('POST',API+path);
         x.setRequestHeader('Content-Type','application/json');
@@ -755,7 +757,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       }
       fetch('https://tapirro.github.io/hilart-shorts/api-config.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
         API=d.api_url||'';
-        if(API)beacon('/api/analytics',{event:'page_load',site:location.hostname,path:location.pathname,ts:Date.now()});
+        if(API){
+          beacon('/api/analytics',{event:'page_load',site:location.hostname,path:location.pathname,ts:Date.now()});
+          q.forEach(function(e){if(e[2])postJSON(e[0],e[1],e[2]);else beacon(e[0],e[1])});q=[];
+        }
       }).catch(function(){});
       var videos=document.querySelectorAll('.video-embed-section video');
       if(!videos.length)return;
@@ -833,6 +838,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
