@@ -772,11 +772,18 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var played={};
       var playCount=0;
       var formShown=false;
-      function track(evt,vid,src){
+      var userActive=false;
+      var loadTs=Date.now();
+      ['click','scroll','touchstart','keydown'].forEach(function(t){
+        document.addEventListener(t,function(){userActive=true},{once:true,passive:true});
+      });
+      function track(evt,vid,src,extra){
+        var data={event:evt,video:vid,site:location.hostname,source:src,ts:Date.now()};
+        if(extra)for(var k in extra)data[k]=extra[k];
         if(window.goatcounter&&window.goatcounter.count){
           window.goatcounter.count({path:'embed/'+evt+'/'+src+'/'+vid,title:'Embed '+evt+': '+vid,event:true});
         }
-        beacon('/api/analytics',{event:evt,video:vid,site:location.hostname,source:src,ts:Date.now()});
+        beacon('/api/analytics',data);
       }
       function showLeadForm(){
         if(formShown)return;
@@ -802,14 +809,16 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         io.observe(v);
         v.addEventListener('play',function(){
           var vid=v.getAttribute('data-video');
+          var isAutoplay=!userActive||(Date.now()-loadTs<3000);
           if(!played[vid]){
             played[vid]=1;
             playCount++;
-            track('play',vid,v.getAttribute('data-src'));
-            if(playCount>=2)showLeadForm();
+            track('play',vid,v.getAttribute('data-src'),{autoplay:isAutoplay});
+            if(playCount>=2&&!isAutoplay)showLeadForm();
           }
         });
         v.addEventListener('click',function(){
+          userActive=true;
           if(v.muted){v.muted=false;v.controls=true;
             track('unmute',v.getAttribute('data-video'),v.getAttribute('data-src'));
           }
@@ -845,6 +854,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
