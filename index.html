@@ -892,7 +892,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var sid='s_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
       var visId=(function(){try{var v=localStorage.getItem('hs_vid');if(!v){v='v_'+Date.now()+'_'+Math.random().toString(36).substr(2,8);localStorage.setItem('hs_vid',v)}return v}catch(e){return 'v_'+Date.now()}})();
       var vn=(function(){try{var n=parseInt(localStorage.getItem('hs_vn')||'0')+1;localStorage.setItem('hs_vn',String(n));return n}catch(e){return 1}})();
-      var embedV=25;
+      var embedV=26;
       var ua=navigator.userAgent||'';
       var ref=document.referrer||'';
       var sw=screen.width||0;
@@ -992,6 +992,17 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         }
         track('form_show',formDismissed?'reshow':'',location.hostname);
       }
+      function showGuide(channel){
+        var f=document.getElementById('embed-lead-form');
+        if(!f)return;
+        var chatArea=f.querySelector('[style*="e5ddd5"]');
+        if(!chatArea)chatArea=f.children[1];
+        if(!chatArea)return;
+        chatArea.innerHTML='<div style="padding:14px 16px"><div style="background:#dcf8c6;border-radius:0 8px 8px 8px;padding:12px 14px;margin-bottom:10px"><p style="margin:0;font-size:0.88rem;color:#303030;line-height:1.5"><b>Tu guía: 3 hábitos para proteger tu visión</b><br>1️⃣ <b>Regla 20-20-20:</b> Cada 20 min, mira algo a 20 pies (6m) durante 20 seg. Reduce fatiga ocular digital.<br>2️⃣ <b>Zanahoria + espinaca diaria:</b> Luteína y zeaxantina protegen la retina. 1 taza al día marca diferencia.<br>3️⃣ <b>Parpadeo consciente:</b> Frente a pantallas parpadeamos 60% menos. Haz 10 parpadeos lentos cada hora.</p></div><div style="background:#fff;border-radius:8px 0 8px 8px;padding:10px 12px;margin-left:auto;max-width:90%"><p style="margin:0;font-size:0.85rem;color:#25d366;font-weight:600">\u2705 \u00a1Gracias!</p><p style="margin:4px 0 0;font-size:0.78rem;color:#667781">'+(channel==='email'?'Si tienes dudas, resp\u00f3ndenos al email.':'Te contactaremos pronto.')+'</p></div></div>';
+        var footer=f.querySelector('[style*="border-top"]');
+        if(footer)footer.innerHTML='<a href="https://tapirro.github.io/hilart-shorts/salud/salud-visual/" target="_blank" rel="noopener" style="display:inline-block;padding:8px 0;color:#2563eb;font-size:0.85rem;font-weight:600;text-decoration:none">Ver m\u00e1s videos sobre Zeaxan \u2192</a>';
+        track('guide_shown',channel,location.hostname);
+      }
       var io=new IntersectionObserver(function(entries){
         entries.forEach(function(e){
           var v=e.target;
@@ -1061,11 +1072,11 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         },function(status){
           if(status>=200&&status<300){
             track('lead_captured',phone.replace(/\d/g,'*'),location.hostname);
-            form.innerHTML='<p style="color:#25d366;font-weight:600;margin:0">\u2705 \u00a1Gracias! Te escribiremos por WhatsApp.</p><a href="https://tapirro.github.io/hilart-shorts/salud/salud-visual/" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;color:#2563eb;font-size:0.85rem;font-weight:600;text-decoration:none">Ver m\u00e1s videos sobre Zeaxan \u2192</a><a href="https://api.whatsapp.com/send?text='+encodeURIComponent(shareText)+'" target="_blank" rel="noopener" onclick="track(\x27form_share\x27,\x27\x27,location.hostname)" style="display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:10px 18px;background:#25d366;color:#fff;border:none;border-radius:20px;font-size:0.9rem;font-weight:700;cursor:pointer;text-decoration:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.257-1.223l-.306-.182-2.868.852.852-2.868-.182-.306A8 8 0 1112 20z"/></svg>Env\u00edalo a alguien que lo necesite</a>';
+            showGuide('whatsapp');
           }else{
             bufferLead({name:'Embed lead',phone:phone,email:'',country:country,product:'Zeaxan',session_id:sid,visitor_id:visId,visit_number:vn,slides_viewed:engageCount,source:location.hostname,utm_source:'embed',utm_medium:'video',utm_campaign:'salud-visual',referrer:document.referrer,buffered_at:new Date().toISOString()});
             track('lead_buffered','status_'+status,location.hostname);
-            form.innerHTML='<p style="color:#25d366;font-weight:600;margin:0">\u2705 \u00a1Gracias! Te escribiremos por WhatsApp.</p><p style="color:#666;font-size:0.8rem;margin:4px 0 0">Tus datos se guardaron. Te contactaremos pronto.</p>';
+            showGuide('whatsapp');
           }
         });
       });
@@ -1108,13 +1119,11 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         },function(status){
           if(status>=200&&status<300){
             track('lead_captured','email',location.hostname);
-            var formContainer=document.querySelector('#embed-lead-form .embed-lead-error').parentElement;
-            formContainer.innerHTML='<p style="color:#25d366;font-weight:600;margin:0">\u2705 \u00a1Gracias! Te enviaremos la gu\u00eda por email.</p><a href="https://tapirro.github.io/hilart-shorts/salud/salud-visual/" target="_blank" rel="noopener" style="display:inline-block;margin-top:8px;color:#2563eb;font-size:0.85rem;font-weight:600;text-decoration:none">Ver m\u00e1s videos sobre Zeaxan \u2192</a>';
+            showGuide('email');
           }else{
             bufferLead({name:'Embed lead (email)',phone:'',email:email,country:country,product:'Zeaxan',session_id:sid,visitor_id:visId,visit_number:vn,slides_viewed:engageCount,source:location.hostname,utm_source:'embed',utm_medium:'video',utm_campaign:'salud-visual',referrer:document.referrer,buffered_at:new Date().toISOString()});
             track('lead_buffered','email_status_'+status,location.hostname);
-            var formContainer=document.querySelector('#embed-lead-form .embed-lead-error').parentElement;
-            formContainer.innerHTML='<p style="color:#25d366;font-weight:600;margin:0">\u2705 \u00a1Gracias! Te enviaremos la gu\u00eda por email.</p>';
+            showGuide('email');
           }
         });
       });
@@ -1201,6 +1210,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "¿Tu vista se está deteriorando?", "description": "Video informativo sobre Zeaxan - ¿Tu vista se está deteriorando?", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/105_hero_zeaxan_c265.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/105_hero_zeaxan_c265.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Lo que no te dicen sobre tu vista", "description": "Video informativo sobre Zeaxan - Lo que no te dicen sobre tu vista", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "¿Problemas de visión? Mira esto", "description": "Video informativo sobre Zeaxan - ¿Problemas de visión? Mira esto", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Protege tu visión naturalmente", "description": "Video informativo sobre Zeaxan - Protege tu visión naturalmente", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Mitos sobre la salud visual", "description": "Video informativo sobre Zeaxan - Mitos sobre la salud visual", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Cambios visibles en tu visión", "description": "Video informativo sobre Zeaxan - Cambios visibles en tu visión", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/19_before_after_transformation_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/19_before_after_transformation_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "3 hábitos para proteger tus ojos", "description": "Video informativo sobre Zeaxan - 3 hábitos para proteger tus ojos", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/31_list_listicle_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/31_list_listicle_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "No esperes: tu vista necesita atención", "description": "Video informativo sobre Zeaxan - No esperes: tu vista necesita atención", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/72_countdown_urgency_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/72_countdown_urgency_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}]}</script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
