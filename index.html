@@ -773,7 +773,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         <p style="margin:0;font-size:0.95rem;color:#166534;font-weight:700;flex:1 1 100%;line-height:1.3">\ud83c\udf3f Protege tu visión: 3 hábitos que pocos conocen</p>
         <p style="margin:0 0 4px;font-size:0.78rem;color:#666;flex:1 1 100%">Recibe una guía con ejercicios y alimentos para tus ojos. Sin spam · Solo WhatsApp.</p>
         <form id="embed-lead-phone-form" style="display:flex;gap:8px;align-items:center;flex:1 1 100%">
-          <input name="phone" type="tel" placeholder="\ud83d\udcf1 Tu n\u00famero de WhatsApp" required minlength="7"
+          <input name="phone" type="tel" placeholder="\ud83d\udcf1 Ej: 912 345 678" required minlength="7"
             style="flex:1;padding:12px 14px;border:2px solid #25d366;border-radius:10px;font-size:1rem;outline:none">
           <button type="submit"
             style="padding:12px 20px;background:#25d366;color:#fff;border:none;border-radius:10px;font-size:0.95rem;font-weight:700;cursor:pointer;white-space:nowrap;display:flex;align-items:center;gap:6px">
@@ -801,7 +801,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var sid='s_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
       var visId=(function(){try{var v=localStorage.getItem('hs_vid');if(!v){v='v_'+Date.now()+'_'+Math.random().toString(36).substr(2,8);localStorage.setItem('hs_vid',v)}return v}catch(e){return 'v_'+Date.now()}})();
       var vn=(function(){try{var n=parseInt(localStorage.getItem('hs_vn')||'0')+1;localStorage.setItem('hs_vn',String(n));return n}catch(e){return 1}})();
-      var embedV=16;
+      var embedV=17;
       var hadInteraction=false;
       ['click','touchstart','scroll','mousemove','keydown'].forEach(function(evt){document.addEventListener(evt,function(){hadInteraction=true},{once:true,passive:true})});
       function beacon(path,data){
@@ -916,14 +916,18 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       });
       // Lead form submission
       var form=document.getElementById('embed-lead-phone-form');
+      var errEl=document.querySelector('.embed-lead-error');
       if(form)form.addEventListener('submit',function(e){
         e.preventDefault();
+        if(errEl)errEl.textContent='';
         var phone=form.querySelector('input[name=phone]').value.trim();
-        if(!phone||phone.length<7)return;
+        if(!phone||phone.replace(/[^0-9]/g,'').length<7){if(errEl)errEl.textContent='Ingresa un número válido (mínimo 7 dígitos)';return}
         var btn=form.querySelector('button');
         btn.textContent='Enviando...';btn.disabled=true;
         var tld=location.hostname.split('.').pop();
         var country=tld==='pe'?'Peru':tld==='co'?'Colombia':tld==='com'?'LATAM':'';
+        var digits=phone.replace(/[^0-9]/g,'');
+        if(!phone.startsWith('+')&&digits.length<=10){phone=(tld==='pe'?'+51':'+57')+digits}
         track('form_submitted',phone.replace(/\d/g,'*'),location.hostname);
         postJSON('/api/leads',{
           name:'Embed lead',phone:phone,email:'',country:country,
@@ -939,7 +943,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           }else{
             bufferLead({name:'Embed lead',phone:phone,email:'',country:country,product:'Zeaxan',session_id:sid,visitor_id:visId,visit_number:vn,slides_viewed:engageCount,source:location.hostname,utm_source:'embed',utm_medium:'video',utm_campaign:'salud-visual',referrer:document.referrer,buffered_at:new Date().toISOString()});
             track('lead_buffered','status_'+status,location.hostname);
-            form.innerHTML='<p style="color:#25d366;font-weight:600;margin:0">\u2705 \u00a1Gracias! Te escribiremos por WhatsApp.</p><p style="color:#666;font-size:0.8rem;margin:4px 0 0">Tu datos se enviaron correctamente.</p>';
+            form.innerHTML='<p style="color:#25d366;font-weight:600;margin:0">\u2705 \u00a1Gracias! Te escribiremos por WhatsApp.</p><p style="color:#666;font-size:0.8rem;margin:4px 0 0">Tus datos se guardaron. Te contactaremos pronto.</p>';
           }
         });
       });
@@ -988,6 +992,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "Lo que no te dicen sobre tu vista", "description": "Video informativo sobre Zeaxan - Lo que no te dicen sobre tu vista", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "¿Problemas de visión? Mira esto", "description": "Video informativo sobre Zeaxan - ¿Problemas de visión? Mira esto", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Protege tu visión naturalmente", "description": "Video informativo sobre Zeaxan - Protege tu visión naturalmente", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Mitos sobre la salud visual", "description": "Video informativo sobre Zeaxan - Mitos sobre la salud visual", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}]}</script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
