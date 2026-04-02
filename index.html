@@ -846,11 +846,11 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       </div>
       <div style="padding:14px 16px;background:#e5ddd5">
         <div style="background:#dcf8c6;border-radius:0 8px 8px 8px;padding:10px 12px;margin-bottom:8px;position:relative;max-width:90%">
-          <p style="margin:0;font-size:0.9rem;color:#303030;line-height:1.4">Hola! Tengo 3 hábitos para proteger tu visión que pocos conocen. ¿Te los envío?</p>
-          <p style="margin:4px 0 0;font-size:0.78rem;color:#667781">Ejercicios + alimentos para tus ojos por WhatsApp</p>
+          <p style="margin:0;font-size:0.9rem;color:#303030;line-height:1.4">Hola! Tengo una guía gratuita con 3 hábitos para proteger tu visión.</p>
+          <p style="margin:4px 0 0;font-size:0.78rem;color:#667781">Ejercicios + alimentos para tus ojos — te la envío al instante</p>
         </div>
         <div style="background:#fff;border-radius:8px 0 8px 8px;padding:10px 12px;margin-left:auto;max-width:90%">
-          <form id="embed-lead-phone-form" style="display:flex;gap:8px;align-items:center">
+          <form id="embed-lead-phone-form" style="display:none;gap:8px;align-items:center">
             <input name="phone" type="tel" placeholder="\ud83d\udcf1 912 345 678" required minlength="7"
               style="flex:1;padding:10px 12px;border:1.5px solid #ddd;border-radius:20px;font-size:0.95rem;outline:none;background:#f9f9f9">
             <button type="submit"
@@ -858,7 +858,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
               <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
             </button>
           </form>
-          <form id="embed-lead-email-form" style="display:none;gap:8px;align-items:center">
+          <form id="embed-lead-email-form" style="display:flex;gap:8px;align-items:center">
             <input name="email" type="email" placeholder="\u2709\ufe0f tu@email.com" required
               style="flex:1;padding:10px 12px;border:1.5px solid #ddd;border-radius:20px;font-size:0.95rem;outline:none;background:#f9f9f9">
             <button type="submit"
@@ -867,7 +867,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
             </button>
           </form>
           <p class="embed-lead-error" style="margin:4px 0 0;font-size:0.72rem;color:#dc2626"></p>
-          <a id="embed-lead-toggle" href="#" style="display:block;margin-top:6px;font-size:0.72rem;color:#2563eb;text-decoration:none;text-align:right">\u00bfPrefieres email?</a>
+          <a id="embed-lead-toggle" href="#" style="display:block;margin-top:6px;font-size:0.72rem;color:#2563eb;text-decoration:none;text-align:right">\u00bfPrefieres WhatsApp?</a>
         </div>
       </div>
       <div style="background:#fff;padding:8px 16px;text-align:center;border-top:1px solid #eee">
@@ -892,7 +892,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var sid='s_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
       var visId=(function(){try{var v=localStorage.getItem('hs_vid');if(!v){v='v_'+Date.now()+'_'+Math.random().toString(36).substr(2,8);localStorage.setItem('hs_vid',v)}return v}catch(e){return 'v_'+Date.now()}})();
       var vn=(function(){try{var n=parseInt(localStorage.getItem('hs_vn')||'0')+1;localStorage.setItem('hs_vn',String(n));return n}catch(e){return 1}})();
-      var embedV=24;
+      var embedV=25;
       var ua=navigator.userAgent||'';
       var ref=document.referrer||'';
       var sw=screen.width||0;
@@ -1073,7 +1073,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var emailForm=document.getElementById('embed-lead-email-form');
       var toggleBtn=document.getElementById('embed-lead-toggle');
       var phoneFormEl=document.getElementById('embed-lead-phone-form');
-      var useEmail=false;
+      var useEmail=true;
       if(toggleBtn)toggleBtn.addEventListener('click',function(e){
         e.preventDefault();
         useEmail=!useEmail;
@@ -1201,6 +1201,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "¿Tu vista se está deteriorando?", "description": "Video informativo sobre Zeaxan - ¿Tu vista se está deteriorando?", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/105_hero_zeaxan_c265.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/105_hero_zeaxan_c265.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Lo que no te dicen sobre tu vista", "description": "Video informativo sobre Zeaxan - Lo que no te dicen sobre tu vista", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "¿Problemas de visión? Mira esto", "description": "Video informativo sobre Zeaxan - ¿Problemas de visión? Mira esto", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Protege tu visión naturalmente", "description": "Video informativo sobre Zeaxan - Protege tu visión naturalmente", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Mitos sobre la salud visual", "description": "Video informativo sobre Zeaxan - Mitos sobre la salud visual", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Cambios visibles en tu visión", "description": "Video informativo sobre Zeaxan - Cambios visibles en tu visión", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/19_before_after_transformation_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/19_before_after_transformation_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "3 hábitos para proteger tus ojos", "description": "Video informativo sobre Zeaxan - 3 hábitos para proteger tus ojos", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/31_list_listicle_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/31_list_listicle_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "No esperes: tu vista necesita atención", "description": "Video informativo sobre Zeaxan - No esperes: tu vista necesita atención", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/72_countdown_urgency_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/72_countdown_urgency_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}]}</script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
