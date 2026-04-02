@@ -772,7 +772,9 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var engaged={};
       var engageCount=0;
       var formShown=false;
-      var embedV=4;
+      var embedV=5;
+      var viewTimer=null;
+      var viewStart=0;
       function track(evt,vid,src,extra){
         var data={event:evt,video:vid,site:location.hostname,source:src,ts:Date.now(),embed_v:embedV};
         if(extra)for(var k in extra)data[k]=extra[k];
@@ -796,8 +798,18 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           if(e.isIntersecting&&e.intersectionRatio>=0.6){
             if(v.preload==='none')v.preload='auto';
             v.play().catch(function(){});
+            if(!viewTimer&&!formShown){
+              viewStart=Date.now();
+              viewTimer=setInterval(function(){
+                if(Date.now()-viewStart>=8000){
+                  clearInterval(viewTimer);viewTimer=null;
+                  showLeadForm();
+                }
+              },1000);
+            }
           }else{
             v.pause();
+            if(viewTimer){clearInterval(viewTimer);viewTimer=null}
           }
         });
       },{threshold:[0,0.6]});
@@ -814,7 +826,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
             engaged[vid]=1;
             engageCount++;
             track('play',vid,v.getAttribute('data-src'));
-            if(engageCount>=2)showLeadForm();
+            if(engageCount>=1)showLeadForm();
             }
           }
         });
@@ -847,6 +859,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     </script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
