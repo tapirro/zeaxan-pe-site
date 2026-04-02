@@ -679,7 +679,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     <p style="color:#1a1a1a;margin-bottom:14px;font-size:0.95rem;font-weight:600">Videos informativos sobre Zeaxan</p>
     <div style="display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 16px;max-width:100%">
 
-      <div class="video-embed-card" style="flex:0 0 auto;width:160px">
+      <div class="video-embed-card" style="flex:0 0 auto;width:160px;position:relative">
         <video
           poster="https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg"
           playsinline
@@ -694,9 +694,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         >
           <source src="https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4" type="video/mp4">
         </video>
+        <div class="unmute-cta" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#fff;padding:6px 14px;border-radius:20px;font-size:0.75rem;font-weight:600;pointer-events:none;display:none;white-space:nowrap;backdrop-filter:blur(4px)">\ud83d\udd0a Toca para escuchar</div>
         <p class="video-embed-title" style="margin:6px 0 0;font-size:0.8rem;color:#444;line-height:1.2">Lo que no te dicen sobre tu vista</p>
       </div>
-      <div class="video-embed-card" style="flex:0 0 auto;width:160px">
+      <div class="video-embed-card" style="flex:0 0 auto;width:160px;position:relative">
         <video
           poster="https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg"
           playsinline
@@ -711,9 +712,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         >
           <source src="https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4" type="video/mp4">
         </video>
+        <div class="unmute-cta" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#fff;padding:6px 14px;border-radius:20px;font-size:0.75rem;font-weight:600;pointer-events:none;display:none;white-space:nowrap;backdrop-filter:blur(4px)">\ud83d\udd0a Toca para escuchar</div>
         <p class="video-embed-title" style="margin:6px 0 0;font-size:0.8rem;color:#444;line-height:1.2">¿Problemas de visión? Mira esto</p>
       </div>
-      <div class="video-embed-card" style="flex:0 0 auto;width:160px">
+      <div class="video-embed-card" style="flex:0 0 auto;width:160px;position:relative">
         <video
           poster="https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg"
           playsinline
@@ -728,9 +730,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         >
           <source src="https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4" type="video/mp4">
         </video>
+        <div class="unmute-cta" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#fff;padding:6px 14px;border-radius:20px;font-size:0.75rem;font-weight:600;pointer-events:none;display:none;white-space:nowrap;backdrop-filter:blur(4px)">\ud83d\udd0a Toca para escuchar</div>
         <p class="video-embed-title" style="margin:6px 0 0;font-size:0.8rem;color:#444;line-height:1.2">Protege tu visión naturalmente</p>
       </div>
-      <div class="video-embed-card" style="flex:0 0 auto;width:160px">
+      <div class="video-embed-card" style="flex:0 0 auto;width:160px;position:relative">
         <video
           poster="https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg"
           playsinline
@@ -745,6 +748,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         >
           <source src="https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4" type="video/mp4">
         </video>
+        <div class="unmute-cta" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#fff;padding:6px 14px;border-radius:20px;font-size:0.75rem;font-weight:600;pointer-events:none;display:none;white-space:nowrap;backdrop-filter:blur(4px)">\ud83d\udd0a Toca para escuchar</div>
         <p class="video-embed-title" style="margin:6px 0 0;font-size:0.8rem;color:#444;line-height:1.2">Mitos sobre la salud visual</p>
       </div>
     </div>
@@ -811,9 +815,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var engaged={};
       var engageCount=0;
       var formShown=false;
-      var embedV=7;
-      var viewTimer=null;
-      var viewStart=0;
+      var embedV=8;
+      var hasPlayed=false;
       function track(evt,vid,src,extra){
         var data={event:evt,video:vid,site:location.hostname,source:src,ts:Date.now(),embed_v:embedV,session_id:sid,visitor_id:visId,visit_number:vn};
         if(extra)for(var k in extra)data[k]=extra[k];
@@ -836,19 +839,12 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           var v=e.target;
           if(e.isIntersecting&&e.intersectionRatio>=0.6){
             if(v.preload==='none')v.preload='auto';
-            v.play().catch(function(){});
-            if(!viewTimer&&!formShown){
-              viewStart=Date.now();
-              viewTimer=setInterval(function(){
-                if(Date.now()-viewStart>=8000){
-                  clearInterval(viewTimer);viewTimer=null;
-                  showLeadForm();
-                }
-              },1000);
-            }
+            v.play().then(function(){
+              if(v.muted){var cta=v.parentElement.querySelector('.unmute-cta');if(cta)cta.style.display='block'}
+            }).catch(function(){});
           }else{
             v.pause();
-            if(viewTimer){clearInterval(viewTimer);viewTimer=null}
+            var cta=v.parentElement.querySelector('.unmute-cta');if(cta)cta.style.display='none';
           }
         });
       },{threshold:[0,0.6]});
@@ -856,7 +852,9 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         io.observe(v);
         v.addEventListener('click',function(){
           var vid=v.getAttribute('data-video');
+          var cta=v.parentElement.querySelector('.unmute-cta');
           if(v.muted){v.muted=false;v.controls=true;
+            if(cta)cta.style.display='none';
             track('unmute',vid,v.getAttribute('data-src'));
           }
           else if(v.paused){v.play()}
@@ -864,8 +862,9 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           if(!engaged[vid]){
             engaged[vid]=1;
             engageCount++;
+            hasPlayed=true;
             track('play',vid,v.getAttribute('data-src'));
-            if(engageCount>=1)showLeadForm();
+            setTimeout(function(){if(hasPlayed)showLeadForm()},12000);
             }
           }
         });
@@ -900,6 +899,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "Lo que no te dicen sobre tu vista", "description": "Video informativo sobre Zeaxan - Lo que no te dicen sobre tu vista", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "¿Problemas de visión? Mira esto", "description": "Video informativo sobre Zeaxan - ¿Problemas de visión? Mira esto", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Protege tu visión naturalmente", "description": "Video informativo sobre Zeaxan - Protege tu visión naturalmente", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Mitos sobre la salud visual", "description": "Video informativo sobre Zeaxan - Mitos sobre la salud visual", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}]}</script>
   <!-- hilart-shorts-video-embed -->
 
+      
+      
       
       
       
