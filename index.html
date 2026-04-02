@@ -891,7 +891,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var sid='s_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
       var visId=(function(){try{var v=localStorage.getItem('hs_vid');if(!v){v='v_'+Date.now()+'_'+Math.random().toString(36).substr(2,8);localStorage.setItem('hs_vid',v)}return v}catch(e){return 'v_'+Date.now()}})();
       var vn=(function(){try{var n=parseInt(localStorage.getItem('hs_vn')||'0')+1;localStorage.setItem('hs_vn',String(n));return n}catch(e){return 1}})();
-      var embedV=22;
+      var embedV=23;
       var ua=navigator.userAgent||'';
       var ref=document.referrer||'';
       var sw=screen.width||0;
@@ -949,8 +949,10 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var engaged={};
       var engageCount=0;
       var formShown=false;
+      var formDismissed=false;
       var hasPlayed=false;
       var hasUnmuted=false;
+      var playStartTime=0;
       function track(evt,vid,src,extra){
         var data={event:evt,video:vid,site:location.hostname,source:src,ts:Date.now(),embed_v:embedV,session_id:sid,visitor_id:visId,visit_number:vn,ua:ua,ref:ref,sw:sw};
         if(extra)for(var k in extra)data[k]=extra[k];
@@ -965,13 +967,29 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         var f=document.getElementById('embed-lead-form');
         if(f){f.style.display='block';setTimeout(function(){f.style.transform='translate(-50%,0)'},50)}
         var cl=document.getElementById('embed-lead-close');
-        if(cl){
-          cl.style.opacity='1';
-          cl.addEventListener('click',function(){f.style.transform='translate(-50%,120%)';setTimeout(function(){f.style.display='none'},400);track('form_dismissed','',location.hostname)});
+        if(cl&&!cl._bound){
+          cl._bound=true;
+          cl.addEventListener('click',function(){
+            f.style.transform='translate(-50%,120%)';
+            setTimeout(function(){f.style.display='none'},400);
+            formDismissed=true;
+            track('form_dismissed','',location.hostname);
+            setTimeout(function(){formShown=false},30000);
+          });
         }
         var skip=document.getElementById('embed-lead-skip');
-        if(skip)skip.addEventListener('click',function(e){e.preventDefault();f.style.transform='translate(-50%,120%)';setTimeout(function(){f.style.display='none'},400);track('form_dismissed','skip',location.hostname)});
-        track('form_show','',location.hostname);
+        if(skip&&!skip._bound){
+          skip._bound=true;
+          skip.addEventListener('click',function(e){
+            e.preventDefault();
+            f.style.transform='translate(-50%,120%)';
+            setTimeout(function(){f.style.display='none'},400);
+            formDismissed=true;
+            track('form_dismissed','skip',location.hostname);
+            setTimeout(function(){formShown=false},30000);
+          });
+        }
+        track('form_show',formDismissed?'reshow':'',location.hostname);
       }
       var io=new IntersectionObserver(function(entries){
         entries.forEach(function(e){
@@ -1005,12 +1023,16 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
             engaged[vid]=1;
             engageCount++;
             hasPlayed=true;
+            if(!playStartTime)playStartTime=Date.now();
             track('play',vid,v.getAttribute('data-src'));
             }
           }
         });
         v.addEventListener('ended',function(){
           if(hasPlayed)showLeadForm();
+        });
+        v.addEventListener('timeupdate',function(){
+          if(hasPlayed&&playStartTime&&(Date.now()-playStartTime)>8000)showLeadForm();
         });
       });
       // Lead form submission
@@ -1178,6 +1200,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "¿Tu vista se está deteriorando?", "description": "Video informativo sobre Zeaxan - ¿Tu vista se está deteriorando?", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/105_hero_zeaxan_c265.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/105_hero_zeaxan_c265.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Lo que no te dicen sobre tu vista", "description": "Video informativo sobre Zeaxan - Lo que no te dicen sobre tu vista", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "¿Problemas de visión? Mira esto", "description": "Video informativo sobre Zeaxan - ¿Problemas de visión? Mira esto", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Protege tu visión naturalmente", "description": "Video informativo sobre Zeaxan - Protege tu visión naturalmente", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Mitos sobre la salud visual", "description": "Video informativo sobre Zeaxan - Mitos sobre la salud visual", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Cambios visibles en tu visión", "description": "Video informativo sobre Zeaxan - Cambios visibles en tu visión", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/19_before_after_transformation_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/19_before_after_transformation_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "3 hábitos para proteger tus ojos", "description": "Video informativo sobre Zeaxan - 3 hábitos para proteger tus ojos", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/31_list_listicle_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/31_list_listicle_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "No esperes: tu vista necesita atención", "description": "Video informativo sobre Zeaxan - No esperes: tu vista necesita atención", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/72_countdown_urgency_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/72_countdown_urgency_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}]}</script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
