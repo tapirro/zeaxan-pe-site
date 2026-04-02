@@ -816,7 +816,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var sid='s_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
       var visId=(function(){try{var v=localStorage.getItem('hs_vid');if(!v){v='v_'+Date.now()+'_'+Math.random().toString(36).substr(2,8);localStorage.setItem('hs_vid',v)}return v}catch(e){return 'v_'+Date.now()}})();
       var vn=(function(){try{var n=parseInt(localStorage.getItem('hs_vn')||'0')+1;localStorage.setItem('hs_vn',String(n));return n}catch(e){return 1}})();
-      var embedV=18;
+      var embedV=19;
       var hadInteraction=false;
       ['click','touchstart','scroll','mousemove','keydown'].forEach(function(evt){document.addEventListener(evt,function(){hadInteraction=true},{once:true,passive:true})});
       function beacon(path,data){
@@ -1005,11 +1005,51 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         },{threshold:0});
         scrollObs.observe(section);
       }
+      // Floating video CTA — draws attention to video section when it's below the fold
+      // Appears after 5s, pulses, scrolls to videos on tap, hides when section is visible
+      if(section){
+        var fab=document.createElement('div');
+        fab.id='hs-video-fab';
+        fab.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>';
+        fab.style.cssText='position:fixed;bottom:20px;right:20px;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);cursor:pointer;z-index:9998;opacity:0;transform:scale(0.8);transition:opacity 0.3s,transform 0.3s;animation:hs-pulse 2s infinite';
+        var style=document.createElement('style');
+        style.textContent='@keyframes hs-pulse{0%,100%{box-shadow:0 4px 16px rgba(0,0,0,0.25)}50%{box-shadow:0 4px 24px rgba(37,211,102,0.5)}}';
+        document.head.appendChild(style);
+        document.body.appendChild(fab);
+        var fabVisible=false;
+        var fabDismissed=false;
+        function showFab(){if(!fabDismissed){fab.style.opacity='1';fab.style.transform='scale(1)';fabVisible=true}}
+        function hideFab(){fab.style.opacity='0';fab.style.transform='scale(0.8)';fabVisible=false}
+        // Show after 5s if section not in viewport
+        setTimeout(function(){
+          var rect=section.getBoundingClientRect();
+          if(rect.top>window.innerHeight||rect.bottom<0)showFab();
+        },5000);
+        // Hide when section enters viewport
+        var fabObs=new IntersectionObserver(function(entries){
+          entries.forEach(function(e){if(e.isIntersecting)hideFab();else if(!fabDismissed){var rect=section.getBoundingClientRect();if(rect.top>window.innerHeight)showFab()}});
+        },{threshold:0.1});
+        fabObs.observe(section);
+        fab.addEventListener('click',function(){
+          fabDismissed=true;hideFab();
+          section.scrollIntoView({behavior:'smooth',block:'center'});
+          track('fab_click','',location.hostname);
+          // Auto-play first video after scroll
+          setTimeout(function(){
+            var v=section.querySelector('video');
+            if(v){if(v.preload==='none')v.preload='auto';v.play().catch(function(){})}
+          },600);
+        });
+        // Auto-dismiss after 15s if not interacted
+        setTimeout(function(){if(fabVisible&&!fabDismissed){fabDismissed=true;hideFab()}},20000);
+      }
     })();
     </script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "Lo que no te dicen sobre tu vista", "description": "Video informativo sobre Zeaxan - Lo que no te dicen sobre tu vista", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "¿Problemas de visión? Mira esto", "description": "Video informativo sobre Zeaxan - ¿Problemas de visión? Mira esto", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Protege tu visión naturalmente", "description": "Video informativo sobre Zeaxan - Protege tu visión naturalmente", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Mitos sobre la salud visual", "description": "Video informativo sobre Zeaxan - Mitos sobre la salud visual", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}]}</script>
   <!-- hilart-shorts-video-embed -->
 
+      
+      
       
       
       
