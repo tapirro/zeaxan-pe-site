@@ -778,6 +778,9 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
     (function(){
       var API='';
       var q=[];
+      var sid='s_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
+      var visId=(function(){try{var v=localStorage.getItem('hs_vid');if(!v){v='v_'+Date.now()+'_'+Math.random().toString(36).substr(2,8);localStorage.setItem('hs_vid',v)}return v}catch(e){return 'v_'+Date.now()}})();
+      var vn=(function(){try{var n=parseInt(localStorage.getItem('hs_vn')||'0')+1;localStorage.setItem('hs_vn',String(n));return n}catch(e){return 1}})();
       function beacon(path,data){
         if(API){try{navigator.sendBeacon(API+path,JSON.stringify(data))}catch(e){xhrFallback(path,data)}}
         else{q.push([path,data])}
@@ -799,7 +802,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       fetch('https://tapirro.github.io/hilart-shorts/api-config.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
         API=d.api_url||'';
         if(API){
-          beacon('/api/analytics',{event:'page_load',site:location.hostname,path:location.pathname,ts:Date.now()});
+          beacon('/api/analytics',{event:'page_load',site:location.hostname,path:location.pathname,ts:Date.now(),embed_v:embedV,session_id:sid,visitor_id:visId,visit_number:vn});
           q.forEach(function(e){if(e[2])postJSON(e[0],e[1],e[2]);else beacon(e[0],e[1])});q=[];
         }
       }).catch(function(){});
@@ -808,11 +811,11 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var engaged={};
       var engageCount=0;
       var formShown=false;
-      var embedV=6;
+      var embedV=7;
       var viewTimer=null;
       var viewStart=0;
       function track(evt,vid,src,extra){
-        var data={event:evt,video:vid,site:location.hostname,source:src,ts:Date.now(),embed_v:embedV};
+        var data={event:evt,video:vid,site:location.hostname,source:src,ts:Date.now(),embed_v:embedV,session_id:sid,visitor_id:visId,visit_number:vn};
         if(extra)for(var k in extra)data[k]=extra[k];
         if(window.goatcounter&&window.goatcounter.count){
           window.goatcounter.count({path:'embed/'+evt+'/'+src+'/'+vid,title:'Embed '+evt+': '+vid,event:true});
@@ -877,7 +880,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         btn.textContent='Enviando...';btn.disabled=true;
         postJSON('/api/leads',{
           name:'Embed lead',phone:phone,email:'',
-          session_id:'embed_'+Date.now(),slides_viewed:0,
+          session_id:sid,visitor_id:visId,visit_number:vn,slides_viewed:engageCount,
           source:location.hostname,
           utm_source:'embed',utm_medium:'video',utm_campaign:'salud-visual',
           referrer:document.referrer
@@ -897,6 +900,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "VideoObject", "name": "Lo que no te dicen sobre tu vista", "description": "Video informativo sobre Zeaxan - Lo que no te dicen sobre tu vista", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "¿Problemas de visión? Mira esto", "description": "Video informativo sobre Zeaxan - ¿Problemas de visión? Mira esto", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Protege tu visión naturalmente", "description": "Video informativo sobre Zeaxan - Protege tu visión naturalmente", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}, {"@type": "VideoObject", "name": "Mitos sobre la salud visual", "description": "Video informativo sobre Zeaxan - Mitos sobre la salud visual", "thumbnailUrl": "https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg", "contentUrl": "https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4", "uploadDate": "2026-03-31", "duration": "PT15S", "embedUrl": "https://zeaxan.pe/"}]}</script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
