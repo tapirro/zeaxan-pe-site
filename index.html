@@ -899,7 +899,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
       var sid='s_'+Date.now()+'_'+Math.random().toString(36).substr(2,6);
       var visId=(function(){try{var v=localStorage.getItem('hs_vid');if(!v){v='v_'+Date.now()+'_'+Math.random().toString(36).substr(2,8);localStorage.setItem('hs_vid',v)}return v}catch(e){return 'v_'+Date.now()}})();
       var vn=(function(){try{var n=parseInt(localStorage.getItem('hs_vn')||'0')+1;localStorage.setItem('hs_vn',String(n));return n}catch(e){return 1}})();
-      var embedV=28;
+      var embedV=29;
       var ua=navigator.userAgent||'';
       var ref=document.referrer||'';
       var sw=screen.width||0;
@@ -1055,7 +1055,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           if(hasPlayed)showLeadForm();
         });
         v.addEventListener('timeupdate',function(){
-          if(hasPlayed&&playStartTime&&(Date.now()-playStartTime)>8000)showLeadForm();
+          if(hasPlayed&&playStartTime&&(Date.now()-playStartTime)>5000)showLeadForm();
         });
       });
       // Lead form submission
@@ -1178,6 +1178,8 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         },{threshold:0});
         scrollObs.observe(section);
       }
+      // Page-time trigger: show form after 20s if user has interacted (even without video click)
+      setTimeout(function(){if(hadInteraction&&!formShown)showLeadForm()},20000);
       // Floating video CTA — draws attention to video section when it's below the fold
       // Appears after 5s, pulses, scrolls to videos on tap, hides when section is visible
       if(section){
@@ -1222,6 +1224,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cómo proteger la visión naturalmente?", "acceptedAnswer": {"@type": "Answer", "text": "Tres hábitos esenciales: la regla 20-20-20 (cada 20 min, mira algo a 6 metros durante 20 seg), consumir zanahoria y espinaca diariamente (luteína y zeaxantina protegen la retina), y parpadeo consciente (10 parpadeos lentos cada hora frente a pantallas)."}}, {"@type": "Question", "name": "¿Qué alimentos son buenos para los ojos?", "acceptedAnswer": {"@type": "Answer", "text": "Los mejores son zanahoria, espinaca, huevo (yema), salmón y arándanos. Contienen luteína, zeaxantina y omega-3 que protegen la retina. Una taza diaria de espinaca o zanahoria marca diferencia."}}, {"@type": "Question", "name": "¿Por qué se pone borrosa la vista después de los 40?", "acceptedAnswer": {"@type": "Answer", "text": "La presbicia (vista cansada) es normal después de los 40: el cristalino pierde elasticidad y cuesta enfocar de cerca. También aumenta el riesgo de cataratas y glaucoma. Revisión anual con oftalmólogo, alimentación rica en luteína y protección UV ayudan a retardar el deterioro."}}, {"@type": "Question", "name": "¿Cómo reducir la fatiga visual por pantallas?", "acceptedAnswer": {"@type": "Answer", "text": "Aplica la regla 20-20-20 (cada 20 min, mira algo a 6 metros por 20 seg). Ajusta el brillo de la pantalla al nivel del entorno. Usa modo oscuro de noche. Parpadea conscientemente (10 parpadeos lentos cada hora). Y mantén la pantalla a 50-70 cm de distancia."}}, {"@type": "Question", "name": "¿Qué vitaminas ayudan a mejorar la vista?", "acceptedAnswer": {"@type": "Answer", "text": "Las más importantes: vitamina A (zanahoria, hígado), luteína y zeaxantina (espinaca, maíz, huevo), omega-3 (salmón, linaza), vitamina C (cítricos) y zinc (mariscos, semillas de calabaza). Juntas protegen la retina y reducen el riesgo de degeneración macular."}}]}</script>
   <!-- hilart-shorts-video-embed -->
 
+      
       
       
       
