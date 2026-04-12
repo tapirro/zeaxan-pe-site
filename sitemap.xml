@@ -1,10 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+           xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://zeaxan.pe/</loc>
-    <lastmod>2026-03-31</lastmod>
+    <lastmod>2026-04-02</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
+      <!-- hilart-shorts-video-sitemap -->
+    <video:video>
+      <video:thumbnail_loc>https://tapirro.github.io/hilart-shorts/thumbnails/105_hero_zeaxan_c265.jpg</video:thumbnail_loc>
+      <video:title>¿Tu vista se está deteriorando?</video:title>
+      <video:description>Video informativo sobre Zeaxan - ¿Tu vista se está deteriorando?</video:description>
+      <video:content_loc>https://tapirro.github.io/hilart-shorts/videos/105_hero_zeaxan_c265.mp4</video:content_loc>
+      <video:duration>15</video:duration>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tapirro.github.io/hilart-shorts/thumbnails/36_curiosity_gap_education_zeaxan.jpg</video:thumbnail_loc>
+      <video:title>Lo que no te dicen sobre tu vista</video:title>
+      <video:description>Video informativo sobre Zeaxan - Lo que no te dicen sobre tu vista</video:description>
+      <video:content_loc>https://tapirro.github.io/hilart-shorts/videos/36_curiosity_gap_education_zeaxan.mp4</video:content_loc>
+      <video:duration>15</video:duration>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tapirro.github.io/hilart-shorts/thumbnails/66_question_education_zeaxan.jpg</video:thumbnail_loc>
+      <video:title>¿Problemas de visión? Mira esto</video:title>
+      <video:description>Video informativo sobre Zeaxan - ¿Problemas de visión? Mira esto</video:description>
+      <video:content_loc>https://tapirro.github.io/hilart-shorts/videos/66_question_education_zeaxan.mp4</video:content_loc>
+      <video:duration>15</video:duration>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tapirro.github.io/hilart-shorts/thumbnails/55_doctor_says_problem_solution_zeaxan.jpg</video:thumbnail_loc>
+      <video:title>Protege tu visión naturalmente</video:title>
+      <video:description>Video informativo sobre Zeaxan - Protege tu visión naturalmente</video:description>
+      <video:content_loc>https://tapirro.github.io/hilart-shorts/videos/55_doctor_says_problem_solution_zeaxan.mp4</video:content_loc>
+      <video:duration>15</video:duration>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tapirro.github.io/hilart-shorts/thumbnails/48_myth_bust_myth_debunk_zeaxan.jpg</video:thumbnail_loc>
+      <video:title>Mitos sobre la salud visual</video:title>
+      <video:description>Video informativo sobre Zeaxan - Mitos sobre la salud visual</video:description>
+      <video:content_loc>https://tapirro.github.io/hilart-shorts/videos/48_myth_bust_myth_debunk_zeaxan.mp4</video:content_loc>
+      <video:duration>15</video:duration>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tapirro.github.io/hilart-shorts/thumbnails/19_before_after_transformation_zeaxan.jpg</video:thumbnail_loc>
+      <video:title>Cambios visibles en tu visión</video:title>
+      <video:description>Video informativo sobre Zeaxan - Cambios visibles en tu visión</video:description>
+      <video:content_loc>https://tapirro.github.io/hilart-shorts/videos/19_before_after_transformation_zeaxan.mp4</video:content_loc>
+      <video:duration>15</video:duration>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tapirro.github.io/hilart-shorts/thumbnails/31_list_listicle_zeaxan.jpg</video:thumbnail_loc>
+      <video:title>3 hábitos para proteger tus ojos</video:title>
+      <video:description>Video informativo sobre Zeaxan - 3 hábitos para proteger tus ojos</video:description>
+      <video:content_loc>https://tapirro.github.io/hilart-shorts/videos/31_list_listicle_zeaxan.mp4</video:content_loc>
+      <video:duration>15</video:duration>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://tapirro.github.io/hilart-shorts/thumbnails/72_countdown_urgency_zeaxan.jpg</video:thumbnail_loc>
+      <video:title>No esperes: tu vista necesita atención</video:title>
+      <video:description>Video informativo sobre Zeaxan - No esperes: tu vista necesita atención</video:description>
+      <video:content_loc>https://tapirro.github.io/hilart-shorts/videos/72_countdown_urgency_zeaxan.mp4</video:content_loc>
+      <video:duration>15</video:duration>
+      <video:publication_date>2026-03-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
   <url>
     <loc>https://zeaxan.pe/como-se-toma/</loc>
