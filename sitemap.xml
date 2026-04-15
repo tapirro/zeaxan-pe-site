@@ -253,6 +253,24 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/para-cataratas-tratamiento/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/para-ceguera-nocturna/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/para-conjuntivitis-cronica/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/para-daltonismo/</loc>
     <lastmod>2026-04-15</lastmod>
     <priority>0.8</priority>
@@ -265,7 +283,19 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/para-desprendimiento-vitreo/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/para-dolor-de-cabeza-ocular/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/para-edema-macular/</loc>
     <lastmod>2026-04-15</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
@@ -313,6 +343,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/para-lagrimeo-excesivo/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/para-luz-azul-pantallas/</loc>
     <lastmod>2026-04-15</lastmod>
     <priority>0.8</priority>
@@ -355,6 +391,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/para-orzuelo-recurrente/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/para-pantallas-luz-azul/</loc>
     <lastmod>2026-04-15</lastmod>
     <priority>0.8</priority>
@@ -362,6 +404,12 @@
   </url>
   <url>
     <loc>https://zeaxan.pe/para-prevencion-cataratas/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/para-pterigion/</loc>
     <lastmod>2026-04-15</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
@@ -391,7 +439,19 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/para-sequedad-ocular-menopausia/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/para-sindrome-visual-informatico/</loc>
+    <lastmod>2026-04-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/para-tension-ocular/</loc>
     <lastmod>2026-04-15</lastmod>
     <priority>0.8</priority>
     <changefreq>weekly</changefreq>
@@ -539,65 +599,5 @@
     <lastmod>2026-04-15</lastmod>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-conjuntivitis-cronica/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-pterigion/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-orzuelo-recurrente/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-tension-ocular/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-sequedad-ocular-menopausia/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-cataratas-tratamiento/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-desprendimiento-vitreo/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-ceguera-nocturna/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-edema-macular/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/para-lagrimeo-excesivo/</loc>
-    <lastmod>2026-04-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>
