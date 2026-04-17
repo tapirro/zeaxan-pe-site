@@ -776,10 +776,6 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         </div>
         <div class="unmute-cta" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:#fff;padding:8px 16px;border-radius:20px;font-size:0.8rem;font-weight:600;pointer-events:none;display:none;white-space:nowrap;backdrop-filter:blur(4px)">\ud83d\udd0a Toca para escuchar</div>
         <p style="margin:8px 0 0;font-size:0.9rem;color:#1a1a1a;line-height:1.3;font-weight:600">¿Tu vista se está deteriorando?</p>
-        <a class="wa-share-btn" data-title="¿Tu vista se está deteriorando?" data-video="115_hero_zeaxan_c310.mp4" style="display:inline-flex;align-items:center;gap:4px;margin-top:6px;padding:6px 12px;background:#25d366;color:#fff;border:none;border-radius:20px;font-size:0.75rem;font-weight:600;cursor:pointer;text-decoration:none" aria-label="Compartir por WhatsApp">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.257-1.223l-.306-.182-2.868.852.852-2.868-.182-.306A8 8 0 1112 20z"/></svg>
-          Enviar por WhatsApp
-        </a>
       </div>
     <p style="margin:16px 0 8px;font-size:0.85rem;color:#666;font-weight:500">M\u00e1s videos</p>
     <div style="display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 16px;max-width:100%;justify-content:center">
@@ -1083,7 +1079,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         if(!chatArea)return;
         chatArea.innerHTML='<div style="padding:14px 16px"><div style="background:#dcf8c6;border-radius:0 8px 8px 8px;padding:12px 14px;margin-bottom:10px"><p style="margin:0;font-size:0.88rem;color:#303030;line-height:1.5"><b>Tu guía: 3 hábitos para proteger tu visión</b><br>1️⃣ <b>Regla 20-20-20:</b> Cada 20 min, mira algo a 20 pies (6m) durante 20 seg. Reduce fatiga ocular digital.<br>2️⃣ <b>Zanahoria + espinaca diaria:</b> Luteína y zeaxantina protegen la retina. 1 taza al día marca diferencia.<br>3️⃣ <b>Parpadeo consciente:</b> Frente a pantallas parpadeamos 60% menos. Haz 10 parpadeos lentos cada hora.</p></div><div style="background:#fff;border-radius:8px 0 8px 8px;padding:10px 12px;margin-left:auto;max-width:90%"><p style="margin:0;font-size:0.85rem;color:#25d366;font-weight:600">\u2705 \u00a1Gracias!</p><p style="margin:4px 0 0;font-size:0.78rem;color:#667781">'+(channel==='email'?'Si tienes dudas, resp\u00f3ndenos al email.':'Te contactaremos pronto.')+'</p></div></div>';
         var footer=f.querySelector('[style*="border-top"]');
-        if(footer)footer.innerHTML='<a href="https://api.whatsapp.com/send?text='+encodeURIComponent(shareText)+'" target="_blank" rel="noopener" onclick="track(\x27guide_share\x27,\x27\x27,location.hostname)" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#25d366;color:#fff;border-radius:20px;font-size:0.82rem;font-weight:600;text-decoration:none;margin-bottom:4px"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>Comp\u00e1rtelo con alguien</a><br><a href="https://tapirro.github.io/hilart-shorts/salud/salud-visual/" target="_blank" rel="noopener" style="display:inline-block;padding:4px 0;color:#2563eb;font-size:0.78rem;text-decoration:none">Ver m\u00e1s videos \u2192</a>';
+        if(footer)footer.innerHTML='<a href="https://tapirro.github.io/hilart-shorts/salud/salud-visual/" target="_blank" rel="noopener" style="display:inline-block;padding:4px 0;color:#2563eb;font-size:0.78rem;text-decoration:none">Ver m\u00e1s videos \u2192</a>';
         track('guide_shown',channel,location.hostname);
       }
       var io=new IntersectionObserver(function(entries){
@@ -1155,11 +1151,11 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         },function(status){
           if(status>=200&&status<300){
             track('lead_captured',phone.replace(/\d/g,'*'),location.hostname);
-            showGuide('whatsapp');
+            showGuide('phone');
           }else{
             bufferLead({name:'Embed lead',phone:phone,email:'',country:country,product:'Zeaxan',session_id:sid,visitor_id:visId,visit_number:vn,slides_viewed:engageCount,source:location.hostname,utm_source:utmSrc,utm_medium:utmMed,utm_campaign:utmCmp,referrer:document.referrer,buffered_at:new Date().toISOString()});
             track('lead_buffered','status_'+status,location.hostname);
-            showGuide('whatsapp');
+            showGuide('phone');
           }
         });
       });
@@ -1174,7 +1170,7 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
         if(useEmail){
           phoneFormEl.style.display='none';
           emailForm.style.display='flex';
-          toggleBtn.textContent='\u00bfPrefieres WhatsApp?';
+          toggleBtn.textContent='\u00bfPrefieres tel\u00e9fono?';
         }else{
           phoneFormEl.style.display='flex';
           emailForm.style.display='none';
@@ -1210,25 +1206,13 @@ body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;color:var(--slate
           }
         });
       });
-      // WhatsApp share — LATAM native
-      var shareUrl='https://tapirro.github.io/hilart-shorts/salud/salud-visual/';
-      var shareText='\ud83c\udf3f Mira estos videos sobre salud visual - tips naturales que te pueden ayudar \ud83d\udc47 '+shareUrl;
-      function waShare(text,evt,vid){
         track(evt,vid||'',location.hostname);
-        var waUrl='https://api.whatsapp.com/send?text='+encodeURIComponent(text);
-        window.open(waUrl,'_blank','noopener');
       }
-      window.shareCondition=function(){
-        waShare(shareText,'form_share');
-      };
-      document.querySelectorAll('.wa-share-btn').forEach(function(btn){
         btn.addEventListener('click',function(e){
           e.preventDefault();e.stopPropagation();
           var t=btn.getAttribute('data-title');
           var vid=btn.getAttribute('data-video');
           var msg='\ud83c\udf3f '+t+' - mira este video \ud83d\udc47 '+shareUrl;
-          waShare(msg,'video_share',vid);
-        });
       });
       function showToast(msg){
         var t=document.createElement('div');
@@ -2249,7 +2233,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 ⚠️ Para comprar o ver más detalles, necesitas habilitar JavaScript en tu navegador.
             </p>
             <p style="color: #6c757d; font-size: 14px; margin-top: 1rem;">
-                Si tienes problemas, puedes contactarnos directamente por email o WhatsApp.
+                Si tienes problemas, puedes contactarnos directamente por email.
             </p>
         </div>
     </noscript>
