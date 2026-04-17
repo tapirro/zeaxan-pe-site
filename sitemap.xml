@@ -715,6 +715,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/fatiga-visual-gamer/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/fatiga-visual-pantallas/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -769,6 +775,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/ojo-seco-oficina/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/ojo-seco-severo-menopausia/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -799,6 +811,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-contaminacion-lima/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/ojos-y-migranas/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -823,6 +841,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/presbicia-y-celular/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/presbicia/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -831,6 +855,12 @@
   <url>
     <loc>https://zeaxan.pe/condiciones/prevencion-cataratas-temprana/</loc>
     <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/proteccion-ojos-sol-peru/</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -937,6 +967,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/vista-y-diabetes-peru/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/precio-peru/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -949,9 +985,51 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/ingrediente/arandano/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/ingrediente/espinaca/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/ingrediente/ginkgo-biloba/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/ingrediente/luteina-y-zeaxantina/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/ingrediente/manzanilla/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/ingrediente/zanahoria/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/que-contiene/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/ingrediente/luteina-zeaxantina/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>
