@@ -679,13 +679,31 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/degeneracion-vitreo/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/desprendimiento-vitreo/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/distrofia-corneal/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/edema-macular/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/estrabismo-adulto/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
@@ -745,6 +763,18 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/neuritis-optica/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojo-seco-severo-menopausia/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/ojo-seco-severo/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -758,6 +788,30 @@
   </url>
   <url>
     <loc>https://zeaxan.pe/condiciones/ojos-cansados/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-artritis-reumatoide/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-migranas/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-pantallas-ninos/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-tiroides/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
@@ -811,6 +865,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/retinopatia-por-cloroquina/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/sensibilidad-luz/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -824,6 +884,12 @@
   </url>
   <url>
     <loc>https://zeaxan.pe/condiciones/tension-ocular/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/toxoplasmosis-ocular/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
@@ -848,6 +914,18 @@
   </url>
   <url>
     <loc>https://zeaxan.pe/condiciones/vision-nocturna-deterioro/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/vision-nocturna-y-conduccion/</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/vision-y-hipertension/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
