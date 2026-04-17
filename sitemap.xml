@@ -643,6 +643,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/cataratas-y-radiacion-solar-altiplano/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/cataratas/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -651,6 +657,12 @@
   <url>
     <loc>https://zeaxan.pe/condiciones/ceguera-nocturna/</loc>
     <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/conjuntivitis-alergica-primavera/</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -727,6 +739,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/fatiga-visual-y-celular-peru/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/fotofobia/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -793,6 +811,18 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/ojo-seco-y-aire-acondicionado-lima/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojo-seco-y-aire-acondicionado/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/ojo-seco/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -805,13 +835,43 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-altitud-cusco/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/ojos-y-artritis-reumatoide/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-celular-ninos-peru/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-contaminacion-lima-pe/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/ojos-y-contaminacion-lima/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-contaminacion-minera/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-diabetes-peru/</loc>
     <lastmod>2026-04-17</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
@@ -829,8 +889,26 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-piscinas-cloro/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-soldadura-peru/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/ojos-y-tiroides/</loc>
     <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojos-y-trabajo-nocturno/</loc>
+    <lastmod>2026-04-17</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -841,7 +919,19 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/presbicia-y-calidad-de-vida/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/presbicia-y-celular/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/presbicia-y-pantallas-despues-40/</loc>
     <lastmod>2026-04-17</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
@@ -955,6 +1045,18 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/vision-nocturna-y-manejo-peru/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/vision-y-embarazo-peru/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/vision-y-hipertension/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -1009,6 +1111,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/ingrediente/luteina-zeaxantina/</loc>
+    <lastmod>2026-04-17</lastmod>
+    <priority>0.5</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/ingrediente/manzanilla/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.5</priority>
@@ -1025,11 +1133,5 @@
     <lastmod>2026-04-16</lastmod>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/ingrediente/luteina-zeaxantina/</loc>
-    <lastmod>2026-04-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>
