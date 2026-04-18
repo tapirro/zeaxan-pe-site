@@ -614,7 +614,7 @@
   </url>
   <url>
     <loc>https://zeaxan.pe/ingredientes/</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-18</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -716,7 +716,13 @@
   </url>
   <url>
     <loc>https://zeaxan.pe/condiciones/</loc>
-    <lastmod>2026-04-17</lastmod>
+    <lastmod>2026-04-18</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/astigmatismo-adquirido/</loc>
+    <lastmod>2026-04-18</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -771,6 +777,12 @@
   <url>
     <loc>https://zeaxan.pe/condiciones/daltonismo-apoyo/</loc>
     <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/daltonismo-funcional/</loc>
+    <lastmod>2026-04-18</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -891,6 +903,12 @@
   <url>
     <loc>https://zeaxan.pe/condiciones/neuritis-optica/</loc>
     <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/ojo-rojo-cronico/</loc>
+    <lastmod>2026-04-18</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -1047,6 +1065,12 @@
   <url>
     <loc>https://zeaxan.pe/condiciones/ojos-y-trabajo-nocturno/</loc>
     <lastmod>2026-04-17</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://zeaxan.pe/condiciones/perdida-de-vision-nocturna/</loc>
+    <lastmod>2026-04-18</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
@@ -1213,6 +1237,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://zeaxan.pe/condiciones/vista-borrosa/</loc>
+    <lastmod>2026-04-18</lastmod>
+    <priority>0.6</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://zeaxan.pe/condiciones/vista-cansada-presbicia/</loc>
     <lastmod>2026-04-16</lastmod>
     <priority>0.6</priority>
@@ -1253,35 +1283,5 @@
     <lastmod>2026-04-16</lastmod>
     <priority>0.5</priority>
     <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/condiciones/vista-borrosa/</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/condiciones/daltonismo-funcional/</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/condiciones/ojo-rojo-cronico/</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/condiciones/astigmatismo-adquirido/</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://zeaxan.pe/condiciones/perdida-de-vision-nocturna/</loc>
-    <lastmod>2026-04-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
 </urlset>
