@@ -2362,5 +2362,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   io.observe(form);
 })();
 </script>
+
+<!-- R2: Sticky mobile CTA bar -->
+<div id="sticky-cta-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;padding:8px 12px;background:#fff;border-top:1px solid #ddd;z-index:998;box-shadow:0 -2px 8px rgba(0,0,0,0.1)">
+  <a href="#lead-form-bottom" id="sticky-cta-link" onclick="document.querySelector('.final-cta form, .lead-form, .fn-cta-block form')?.scrollIntoView({behavior:'smooth',block:'center'});return false"
+     style="display:block;background:#FF6B35;color:#fff;padding:14px;text-align:center;border-radius:8px;font-weight:600;font-size:1rem;text-decoration:none;min-height:44px;line-height:1.2">
+    Pedir ahora — Pago contra entrega
+  </a>
+</div>
+<script>
+(function(){
+  var bar=document.getElementById('sticky-cta-bar');
+  if(!bar||window.innerWidth>768)return;
+  bar.style.display='block';
+  var form=document.querySelector('.final-cta')||document.querySelector('.lead-form')||document.querySelector('.fn-cta-block');
+  if(!form)return;
+  function checkPos(){
+    var r=form.getBoundingClientRect();
+    bar.style.display=(r.top<window.innerHeight+100&&r.bottom>-100)?'none':'block';
+  }
+  window.addEventListener('scroll',checkPos,{passive:true});
+  checkPos();
+})();
+</script>
+<style>
+@media(min-width:769px){#sticky-cta-bar{display:none!important}}
+</style>
+
 </body>
 </html>
